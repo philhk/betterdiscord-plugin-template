@@ -6,7 +6,7 @@ module.exports = class TemplatePlugin extends Plugin {
 
   constructor() {
     super();
-    this.bdApi = new BdApi('BetterScreensharePlugin');
+    this.bdApi = new BdApi('TemplatePlugin');
   }
 
   protected start(): void {
