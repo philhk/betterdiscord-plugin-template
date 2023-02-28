@@ -6,7 +6,7 @@ import config from './betterdiscord.config';
 // const OUT_DIR = path.resolve(`${process.env.APPDATA}/BetterDiscord/plugins`); // Use if you want to output in plugins folder directly.
 const OUT_DIR = 'dist';
 
-export default defineConfig((env) => ({
+export default defineConfig(() => ({
   plugins: [
     banner({
       content: `/**${Object.entries(config).map(
@@ -21,14 +21,14 @@ export default defineConfig((env) => ({
     lib: {
       entry: resolve(__dirname, 'src/index.tsx'),
       name: config.name,
-      fileName: `${config.name}.plugin`,
-      formats: ['cjs'],
+      fileName: () => `${config.name}.plugin`,
+      formats: ['iife'],
     },
     rollupOptions: {
       external: ['react'],
       output: {
         globals: {
-          react: 'React',
+          react: 'BdApi.React',
         },
       },
     },
