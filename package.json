@@ -1,6 +1,6 @@
 {
-  "name": "betterdiscord-plugin-template",
   "private": true,
+  "name": "betterdiscord-plugin-template",
   "type": "commonjs",
   "scripts": {
     "build": "tsc && vite build",

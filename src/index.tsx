@@ -1,8 +1,9 @@
-import { Plugin } from './bd';
 import React from 'react';
+import { Plugin } from './bd';
+import { BoundBdApi } from 'betterdiscord';
 
-module.exports = class TemplatePlugin extends Plugin {
-  private bdApi;
+module.exports = class extends Plugin {
+  private bdApi: BoundBdApi;
 
   constructor() {
     super();
@@ -11,10 +12,9 @@ module.exports = class TemplatePlugin extends Plugin {
 
   protected start(): void {
     this.bdApi.UI.alert('Hello World!', <div>Hello World!</div>);
-    this.bdApi.UI.alert(
-      'Hello World!',
-      React.createElement('div', {}, 'Hello World')
-    );
   }
-  protected stop(): void {}
+
+  protected stop(): void {
+    this.bdApi.Patcher.unpatchAll();
+  }
 };

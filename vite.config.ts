@@ -17,7 +17,6 @@ export default defineConfig(() => ({
   ],
   build: {
     outDir: OUT_DIR,
-    minify: false,
     lib: {
       entry: resolve(__dirname, 'src/index.tsx'),
       name: config.name,
