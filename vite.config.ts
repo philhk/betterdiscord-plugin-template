@@ -3,7 +3,7 @@ import banner from 'vite-plugin-banner';
 import { resolve } from 'path';
 import config from './betterdiscord.config';
 
-// const OUT_DIR = path.resolve(`${process.env.APPDATA}/BetterDiscord/plugins`); // Use if you want to output in plugins folder directly.
+// const OUT_DIR = resolve(`${process.env.APPDATA}/BetterDiscord/plugins`); // Use if you want to output in plugins folder directly.
 const OUT_DIR = 'dist';
 
 export default defineConfig(() => ({
@@ -20,7 +20,7 @@ export default defineConfig(() => ({
     lib: {
       entry: resolve(__dirname, 'src/index.tsx'),
       name: config.name,
-      fileName: () => `${config.name}.plugin`,
+      fileName: `${config.name}.plugin.js`,
       formats: ['iife'],
     },
     rollupOptions: {
